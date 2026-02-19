@@ -1,0 +1,77 @@
+services:
+  db: 
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: myapp_dev
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d myapp_dev"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+  
+  storage:
+    image: minio/minio
+    container_name: minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: admin
+      MINIO_ROOT_PASSWORD: password
+    ports:
+      - "9000:9000"   # S3 API
+      - "9001:9001"   # web console
+    volumes:
+      - minio_data:/data
+
+  api:
+    build: 
+      context: .
+      dockerfile: api/Dockerfile
+    container_name: api
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/api/node_modules
+      - ./api/public:/app/public
+    environment:
+      - PORT=5000
+      - DATABASE_URL=postgresql://postgres:password@db:5432/myapp_dev?schema=public
+    env_file:
+      - ./api/.env
+    depends_on:
+      db: 
+        condition: service_healthy
+    working_dir: /app/api
+    command: npm run dev
+
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    container_name: web
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/web/node_modules
+      - /app/web/.next
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:5000
+      - WATCHPACK_POLLING=true
+    working_dir: /app/web
+    depends_on:
+      - api
+    command: npm run dev
+
+volumes:
+  postgres_data:
+  minio_data:

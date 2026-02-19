@@ -1,0 +1,7 @@
+node_modules
+public/
+/src/generated/prisma
+.env
+prisma/generated
+generated/prisma
+.vscode

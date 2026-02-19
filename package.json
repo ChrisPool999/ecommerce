@@ -1,0 +1,32 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "api",
+    "web",
+    "shared"
+  ],
+  "description": "**What this project demonstrates:** ✓ Full-stack development (React + Node.js) ✓ Database design and ORM usage (Prisma + PostgreSQL) ✓ Third-party API integration (Stripe) ✓ Modern DevOps practices (Docker, CI/CD)",
+  "main": "index.ts",
+  "types": "index.ts",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChrisPool999/ecommerce.git"
+  },
+  "author": "Christopher Pool",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChrisPool999/ecommerce/issues"
+  },
+  "homepage": "https://github.com/ChrisPool999/ecommerce#readme",
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.6"
+  }
+}

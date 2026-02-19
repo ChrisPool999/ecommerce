@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+:root {
+  --z-base: 0;
+  --z-navbar: 100;
+  --z-overlay: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+}
+
+.spacing-top-xs { margin-top: 4px; }
+.spacing-top-s { margin-top: 8px; }
+.spacing-top-m { margin-top: 16px; }
+
+.spacing-left-xs { margin-left: 4px; }
+.spacing-left-s { margin-left: 8px; }
+.spacing-left-m { margin-left: 16px; }
+
+.spacing-bottom-xs { margin-bottom: 4px; }
+.spacing-bottom-s { margin-bottom: 8px; }
+.spacing-bottom-m { margin-bottom: 16px; }
+
+.spacing-right-xs { margin-right: 4px; }
+.spacing-right-s { margin-right: 8px; }
+.spacing-right-m { margin-right: 16px; }
+
+.w-s { width: 4px; }

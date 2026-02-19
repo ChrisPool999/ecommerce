@@ -1,0 +1,32 @@
+ROADMAP:
+
+Current Tools:
+  - NextJS
+  - React
+  - TypeScript
+  - Tailwind
+  - Git
+  - Prisma (db ORM)
+  - postgreSQL
+  - Docker
+  - nodeJS
+  - express
+  - JWT (auth)
+  - Rest API design
+
+Goals:
+  - GitHub Actions (CI/CD)
+  - Jest (Or some other testing)
+  - Redis (Caching)
+  - Stripe (Payment)
+  - storage (AWS S3?)
+  - deployment (vercel (front and back), railway/supa (db), upstash (redis - free tier))
+
+SKIP FOR NOW:
+    - Kubernetes (overkill, takes 2 weeks to learn)
+    - apache kafka (not needed for an ecommerce)
+    - microservices (one app is fine)
+    - graphQL (rest is plenty)
+    - EC2/ESK (hosting)
+    - OAuth (JWT enough for now)
+    - redux (react state + context api is enough for MVP)
