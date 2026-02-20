@@ -1,5 +1,7 @@
 import { type FormData, CheckoutStep, STEPS, type NavigableStep } from "./types"
 import { useState, createContext, useContext, ReactNode, useMemo } from "react"
+import { useCart } from "@/context/CartContext"
+
 
 interface CheckoutContextValue {
   step: CheckoutStep,
@@ -54,6 +56,8 @@ export function CheckoutProvider( {children}: {children: ReactNode} ) {
       [field]: value
   })}
 
+  const { clearCartLocal } = useCart()
+
   const completeCurrStep = () => {
     const stepIndex = STEPS.indexOf(step)
 
@@ -89,10 +93,12 @@ export function CheckoutProvider( {children}: {children: ReactNode} ) {
         form
       })
     })
-    const data = await res.json()
 
     if (res.ok) {
+      clearCartLocal()      
       completeCurrStep()
+
+      const data = await res.json()
       setOrderId(data.orderId)
       setOrderErorr(false)
     } else {
