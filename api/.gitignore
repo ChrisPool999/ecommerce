@@ -5,3 +5,4 @@ public/
 prisma/generated
 generated/prisma
 .vscode
+requests.rest

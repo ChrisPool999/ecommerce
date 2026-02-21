@@ -29,7 +29,7 @@ export function ProductCard( {product, isPriority}: ProductProps ) {
   const cartItem = cartItems.find(i => i.productId === product.id)
 
   return (
-    <article className="w-60 outline-1 outline-gray-200 spacing-left-m spacing-top-m">
+    <article className="w-70 outline-1 outline-gray-200 spacing-left-m spacing-top-m">
       <div className="relative w-full h-60 bg-gray-100">
         <Image 
           alt="product photo" 
