@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import Cookies from 'js-cookie'
+import { API_URL } from '@lib/constants';
 
 const COOKIE_KEYS = {
   TOKEN: "token",
@@ -41,7 +42,7 @@ export const AuthProvider = ({ children }: { children: ReactNode} ) => {
     
     const verifyUser = async () => {
       try {
-        const response = await fetch("http://localhost:5000/users/me", {
+        const response = await fetch(`${API_URL}/users/me`, {
           method: "GET",
           credentials: "include",
           headers: {

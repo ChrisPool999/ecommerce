@@ -6,6 +6,7 @@ import React, { useState } from "react"
 import { useRouter } from "next/navigation"
 import Cookies from 'js-cookie'
 import { ActionLink } from "@/components/Navigation/ActionLink"
+import { API_URL } from "@lib/constants"
 
 type AuthStep = 'email' | 'login' | 'signup'
 
@@ -78,7 +79,7 @@ export default function Page() {
   }
 
   async function hasAccount(email: string) {
-    const res = await fetch("http://localhost:5000/auth/email", {
+    const res = await fetch(`${API_URL}/auth/email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -123,7 +124,7 @@ export default function Page() {
     if (!form.password) {
       return
     }
-    const res = await fetch("http://localhost:5000/auth/login", {
+    const res = await fetch(`${API_URL}/auth/login`, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -164,7 +165,7 @@ export default function Page() {
       return
     }
 
-    const res = await fetch("http://localhost:5000/auth/signup", {
+    const res = await fetch(`${API_URL}/auth/signup`, {
       method: "POST",
       credentials: "include",
       headers: {

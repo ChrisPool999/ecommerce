@@ -1,8 +1,9 @@
 import { ProductCard } from "./ProductCard";
 import { ProductWithImages } from "@shared"
+import { API_URL } from "@lib/constants";
 
 export default async function Page() {
-  const res = await fetch("http://api:5000/products");
+  const res = await fetch(`${API_URL}/products`);
   const products: ProductWithImages[] = await res.json();
 
   return (

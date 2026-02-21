@@ -4,6 +4,7 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 import type { CartItemWithDetails } from "@shared"
 import { useAuth } from "./AuthContext"
 import { useRouter } from "next/navigation"
+import { API_URL } from '@lib/constants';
 
 
 interface CartContextValue {
@@ -41,7 +42,7 @@ export const CartProvider = ({ children }: { children: ReactNode } ) => {
 
     const fetchCart = async () => {
       try {
-        const res = await fetch("http://localhost:5000/cart/view", {
+        const res = await fetch(`${API_URL}/cart/view`, {
           credentials: "include",
         })
         const data: CartItemWithDetails[] = await res.json()
@@ -65,7 +66,7 @@ export const CartProvider = ({ children }: { children: ReactNode } ) => {
     
     try {
 
-      const res = await fetch("http://localhost:5000/cart/update", {
+      const res = await fetch(`${API_URL}/cart/update`, {
         method: "PATCH",
         credentials: 'include',
         headers: {
@@ -100,7 +101,7 @@ export const CartProvider = ({ children }: { children: ReactNode } ) => {
   async function deleteCartItem(productId: number) {
     setIsUpdating(true)
     try {
-      const res = await fetch("http://localhost:5000/cart/remove", {
+      const res = await fetch(`${API_URL}/cart/remove`, {
         method: "DELETE",
         credentials: 'include',
         headers: {

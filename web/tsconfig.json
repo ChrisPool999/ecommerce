@@ -30,6 +30,6 @@
       "@shared": ["../shared/index.ts"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(auth)/auth/logininin"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/(auth)/auth/login"],
   "exclude": ["node_modules"]
 }

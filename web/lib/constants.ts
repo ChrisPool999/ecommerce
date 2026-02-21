@@ -5,8 +5,10 @@ export const BRAND = {
   tagline: "placeholder"
 }
 
-export const COLORS = {
 
-}
+const useDockerUrl = process.env.NODE_ENV !== "production" && (typeof window === "undefined")
 
-export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'
+export const API_URL = useDockerUrl ? 
+    'http://api:5000' :
+    process.env.NEXT_PUBLIC_API_URL
+ 

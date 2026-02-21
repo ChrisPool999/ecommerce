@@ -1,6 +1,7 @@
 import { type FormData, CheckoutStep, STEPS, type NavigableStep } from "./types"
 import { useState, createContext, useContext, ReactNode, useMemo } from "react"
 import { useCart } from "@/context/CartContext"
+import { API_URL } from "@lib/constants"
 
 
 interface CheckoutContextValue {
@@ -83,7 +84,7 @@ export function CheckoutProvider( {children}: {children: ReactNode} ) {
   }, [stepsDone])
 
   const createOrder = async () => {
-    const res = await fetch("http://localhost:5000/checkout/", {
+    const res = await fetch(`${API_URL}/checkout/`, {
       method: "POST",
       credentials: "include",
       headers: {
