@@ -1,8 +1,9 @@
 'use client'
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from "react"
-import { Prisma } from "../../../api/src/generated/client"
 import type { CartItemWithDetails } from "@shared"
+import { useAuth } from "./AuthContext"
+import { useRouter } from "next/navigation"
 
 
 interface CartContextValue {
@@ -21,6 +22,9 @@ export const CartProvider = ({ children }: { children: ReactNode } ) => {
   const [isLoading, setIsLoading] = useState(true)
   const [isUpdating, setIsUpdating] = useState(true)
 
+  const router = useRouter()
+  const { user } = useAuth()
+
   const getSubtotal = () => {
     return cartItems.reduce((acc, item) => {
       const cost = Number(item.product.cost)
@@ -30,6 +34,11 @@ export const CartProvider = ({ children }: { children: ReactNode } ) => {
   }
 
   useEffect(() => {
+    if (!user) {
+      setIsLoading(false)
+      return 
+    }
+
     const fetchCart = async () => {
       try {
         const res = await fetch("http://localhost:5000/cart/view", {
@@ -47,6 +56,11 @@ export const CartProvider = ({ children }: { children: ReactNode } ) => {
   }, [])
 
   async function updateCart(productId: number, quantity: number) {
+
+    if (!user) {
+      router.push("/login")
+    }
+
     setIsUpdating(true)
     
     try {

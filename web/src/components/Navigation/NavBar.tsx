@@ -1,8 +1,6 @@
 'use client'
 
 import { useAuth } from "@/context/AuthContext";
-import { HamburgerButton } from "@/components/ui/HamburgerButton";
-import { SearchBar } from "@/components/Navigation/SearchBar";
 import Link from "next/link";
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PersonOutlineSharpIcon from '@mui/icons-material/PersonOutlineSharp';
@@ -12,8 +10,14 @@ import { Logo } from "@/components/Navigation/Logo"
 export function NavBar() {
   const { user, logout, isLoading } = useAuth()
 
-  if (isLoading) {
-    return <div>Loading...</div>
+  function handleUserName() {
+    if (isLoading) {
+       return "loading..."
+    }    
+    if (user) {
+      return `hello, ${user.name}`
+    }
+    return "Sign in"
   }
 
   return (
@@ -32,24 +36,18 @@ export function NavBar() {
         <PersonOutlineSharpIcon fontSize="large"/>
 
         <div className="text-sm mr-2">
-          { user ? (
-            <>
-              <p>hello, {user.name}</p>
-            </>
-          ) : (
-            <>
-              <p>Sign in</p>
-            </>            
-          )}
+          <p>{handleUserName()}</p>
           <p className="font-bold">Account</p>
         </div>
       </Link>
+
       <Link 
-        href="/cart"
+        href={(!isLoading && user) ? "/cart" : "/login"}
         className="absolute top-1/2 -translate-y-1/2 right-0 mr-5 text-white cursor-pointer z-1000 transparent group -z-1">
         <HoverOverlay sizeMultiplier="160%"/>
         <ShoppingCartOutlinedIcon fontSize="large"/>
       </Link>
+
     </nav>
   )
 }
