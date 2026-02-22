@@ -50,7 +50,7 @@ services:
       db: 
         condition: service_healthy
     working_dir: /app/api
-    command: npm run dev
+    command: npx nodemon
 
   web:
     build:

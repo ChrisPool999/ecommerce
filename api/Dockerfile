@@ -18,4 +18,4 @@ ENV PORT=5000
 
 EXPOSE 5000
 
-CMD [ "npx", "nodemon"]
+CMD ["npx", "ts-node", "--esm", "/app/api/src/index.ts"]

@@ -5,7 +5,6 @@ export const BRAND = {
   tagline: "placeholder"
 }
 
-
 const useDockerUrl = process.env.NODE_ENV !== "production" && (typeof window === "undefined")
 
 export const API_URL = useDockerUrl ? 
