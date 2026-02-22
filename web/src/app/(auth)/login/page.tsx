@@ -112,6 +112,7 @@ export default function Page() {
   async function handleLogin(name: string) {
     const baseOptions = {
       secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === 'production' ? "none" as const : "lax" as const,
       expires: 7,    // 1 week
       path: "/",
     }
