@@ -8,8 +8,6 @@
     "shared"
   ],
   "description": "**What this project demonstrates:** ✓ Full-stack development (React + Node.js) ✓ Database design and ORM usage (Prisma + PostgreSQL) ✓ Third-party API integration (Stripe) ✓ Modern DevOps practices (Docker, CI/CD)",
-  "main": "index.ts",
-  "types": "index.ts",
   "directories": {
     "doc": "docs"
   },
