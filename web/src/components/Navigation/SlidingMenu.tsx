@@ -6,13 +6,12 @@ import React from "react";
 
 interface SlidingMenuProps {
   IdName?: string;
-  fromLeft?: boolean;
   overlay?: boolean;
   screenWidth?: string;
   content?: React.ReactNode; 
 }
 
-export function SlidingMenu( {content, fromLeft=true, overlay=true, screenWidth="70"}: SlidingMenuProps ) {
+export function SlidingMenu( {content, overlay=true, screenWidth="70"}: SlidingMenuProps ) {
   const {menuId, isOpen} = useMenu();
 
   return (

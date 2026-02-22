@@ -14,6 +14,7 @@
 - fetching cart if not signed in...
 
 # lower prio
+- move fetch logic out of login/page, and move it into authcontext
 - refactor seed file, so instead of doing create() 16+ times, we creates 16 objects then loop through
 - move public folder in web to be on ecommerce (root) directory (expected there)
 - log and create account errors for server error

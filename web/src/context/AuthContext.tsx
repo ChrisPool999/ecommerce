@@ -18,7 +18,7 @@ interface User {
 interface AuthContextType {
     user: User | null
     isLoading: boolean
-    login: (name: string, token: string) => void
+    login: (name: string) => void
     logout: () => void
 }
 
@@ -67,7 +67,7 @@ export const AuthProvider = ({ children }: { children: ReactNode} ) => {
     verifyUser()
   }, [])
 
-  const login = (name: string, token: string) => {
+  const login = (name: string) => {
     Cookies.set(COOKIE_KEYS.NAME, name, { expires: 7, path: '/' });
     Cookies.set(COOKIE_KEYS.LOGGED_IN, 'true', { expires: 7, path: '/' });
 

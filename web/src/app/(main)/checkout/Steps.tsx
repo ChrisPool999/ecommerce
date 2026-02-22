@@ -16,8 +16,8 @@ function FormField({children, field, className = "", ...props}: FormFieldProps) 
   const { updateField, form } = useCheckout()
 
   function formatPhoneNumber(number: string) {
-    let val = number.slice(0, 10)
-    let len = number.length
+    const val = number.slice(0, 10)
+    const len = number.length
 
     if (len === 0) {
       return ""

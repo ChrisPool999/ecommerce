@@ -18,7 +18,7 @@ import { EmptyCart } from "./EmptyCart";
   }
 
   export default function Page() {
-    const { cartItems, isUpdating, getSubtotal } = useCart()
+    const { cartItems, getSubtotal } = useCart()
 
     const subtotal = getSubtotal()
    

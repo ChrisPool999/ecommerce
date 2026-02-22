@@ -8,7 +8,7 @@ import { HoverOverlay } from "@/components/ui/HoverOverlay";
 import { Logo } from "@/components/Navigation/Logo"
 
 export function NavBar() {
-  const { user, logout, isLoading } = useAuth()
+  const { user, isLoading } = useAuth()
 
   function handleUserName() {
     if (isLoading) {

@@ -9,7 +9,7 @@ interface StepperProps {
 }
 
 export function QuantityStepper({productId, quantity}: StepperProps) {
-  const { updateCart, deleteCartItem } = useCart()
+  const { updateCart } = useCart()
 
   return (
     <Button as="div" variant="transparent" size="sm" className={"border border-yellow-500"}>
