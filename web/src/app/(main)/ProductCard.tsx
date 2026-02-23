@@ -38,7 +38,7 @@ export function ProductCard( {product, isPriority}: ProductProps ) {
     <article className="w-70 outline-1 outline-gray-200 spacing-left-m spacing-top-m">
       <div className="relative w-full h-60 bg-gray-100">
         
-        { isLoading &&
+        { isLoading ? <p>is loading...</p> : 
           <Image 
             alt="product photo" 
             src={`${API_URL}${product.productImages[0].imageUrl}`}
