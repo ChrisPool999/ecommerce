@@ -7,6 +7,7 @@ import { useCart } from "@/context/CartContext";
 import Image from "next/image";
 import { QuantityStepper } from "@ui/QuantityStepper";
 import { formatCurrency } from "@lib/utils";
+import { API_URL } from "@lib/constants";
 
 interface ProductProps {
   product: ProductWithImages,
@@ -33,7 +34,7 @@ export function ProductCard( {product, isPriority}: ProductProps ) {
       <div className="relative w-full h-60 bg-gray-100">
         <Image 
           alt="product photo" 
-          src={`http://localhost:5000${product.productImages[0].imageUrl}`}
+          src={`${API_URL}${product.productImages[0].imageUrl}`}
           fill
           className="object-contain mix-blend-multiply"
           sizes={"100%"}

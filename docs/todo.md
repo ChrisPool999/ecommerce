@@ -2,6 +2,8 @@
 
 ## IGNORING FOR NOW
 # prio
+- can click Button place order button when information isnt filled out OOPS
+
 - consider adding zod validation (types for req.body, can even use middleware to make validating simplier)
 
 - fix middleware error to show unauthorized not 500 error (in general show some logged out UI) 
@@ -31,8 +33,16 @@
 - [x] Database connected (currently using JSON file)
 - [x] Authentication (signup/login)
 - [x] Shopping cart
-- [ ] Checkout flow
-- [ ] Deployment to production
+- [x] Checkout flow
+- [x] Deployment to production
+
+## MVP+ (v2.0)
+- [] Stripe
+- [] Tests
+- [] CI/CD
+- [] Basic analytics
+- [] Simple caching OR performance tuning
+- [] Deployment + uptime
 
 ## Post-MVP Improvements (while applying)
 - [ ] Complete Responsive design
