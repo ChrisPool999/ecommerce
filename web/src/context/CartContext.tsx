@@ -14,6 +14,7 @@ interface CartContextValue {
   isUpdating: boolean
   getSubtotal: () => number
   clearCartLocal: () => void
+  isLoading: boolean
 }
 
 const CartContext = createContext<CartContextValue | undefined>(undefined)
@@ -130,7 +131,7 @@ export const CartProvider = ({ children }: { children: ReactNode } ) => {
 
   return (
     <CartContext.Provider 
-      value={ {cartItems, updateCart, deleteCartItem, isUpdating, getSubtotal, clearCartLocal} }>
+      value={ {cartItems, updateCart, deleteCartItem, isUpdating, getSubtotal, clearCartLocal, isLoading} }>
         {children}
     </CartContext.Provider>
   )

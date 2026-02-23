@@ -24,23 +24,32 @@ function formatReviews(n: number) {
     return n + "k"
 }
 
+
+// API_URL = fetchcalls   nextJS needs to use API service,  client needs to use localhost
+
+
+
 export function ProductCard( {product, isPriority}: ProductProps ) {
-  const { updateCart, cartItems} = useCart()
+  const { updateCart, cartItems, isLoading} = useCart()
 
   const cartItem = cartItems.find(i => i.productId === product.id)
 
   return (
     <article className="w-70 outline-1 outline-gray-200 spacing-left-m spacing-top-m">
       <div className="relative w-full h-60 bg-gray-100">
-        <Image 
-          alt="product photo" 
-          src={`${API_URL}${product.productImages[0].imageUrl}`}
-          fill
-          className="object-contain mix-blend-multiply"
-          sizes={"100%"}
-          priority={isPriority}
-          unoptimized
-        ></Image>
+        
+        { isLoading &&
+          <Image 
+            alt="product photo" 
+            src={`${API_URL}${product.productImages[0].imageUrl}`}
+            fill
+            className="object-contain mix-blend-multiply"
+            sizes={"100%"}
+            priority={isPriority}
+            unoptimized
+          ></Image>
+        }
+
       </div>
       <section className="spacing-left-s mb-2">
         <h2 aria-label={product.name}></h2>
