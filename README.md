@@ -11,6 +11,8 @@ Full-stack e-commerce platform with user authentication, shopping cart, and chec
 ![Screenshot](./screenshots/checkout.png) 
 ![Screenshot](./screenshots/order-placed.png)
 
+https://github.com/user-attachments/assets/72369092-ac89-4764-9e67-655afde6f01b
+
 ## Features
 
 - User authentication (signup/login with JWT)
@@ -39,6 +41,7 @@ Full-stack e-commerce platform with user authentication, shopping cart, and chec
 ┌──────▼──────┐
 │   Railway   │  Backend (Express + PostgreSQL)
 └─────────────┘
+```
 
 ### Installation
 
