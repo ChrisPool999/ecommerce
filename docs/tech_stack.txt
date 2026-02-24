@@ -13,6 +13,7 @@ Current Tools:
   - express
   - JWT (auth)
   - Rest API design
+  - deployment (vercel (front and back), railway/supa (db), upstash (redis - free tier))
 
 Goals:
   - GitHub Actions (CI/CD)
@@ -20,7 +21,6 @@ Goals:
   - Redis (Caching)
   - Stripe (Payment)
   - storage (AWS S3?)
-  - deployment (vercel (front and back), railway/supa (db), upstash (redis - free tier))
 
 SKIP FOR NOW:
     - Kubernetes (overkill, takes 2 weeks to learn)

@@ -12,11 +12,11 @@ export function EmptyCart() {
         height={100}
         priority
       ></Image>
-      <section className="flex flex-col items-center mt-10 gap-4 bg-white w-full py-15">
+      <section className="flex flex-col items-center mt-10 gap-4 bg-white w-full py-5">
         <header className="font-bold text-4xl">Your cart is empty!</header>
         <p className="text-md">Must add items onto the cart before checkout</p>
         <Link href={"/"}>
-          <Button variant="danger" size="lg" className="w-60 font-semibold">View products</Button>
+          <Button variant="sleek" size="lg" className="w-60 font-semibold">View products</Button>
         </Link>
       </section>
     </div>

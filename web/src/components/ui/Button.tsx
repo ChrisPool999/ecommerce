@@ -3,7 +3,7 @@ import { BUTTON_SIZE, BUTTON_STYLES} from '@/styles/theme';
 
 interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: keyof typeof BUTTON_STYLES
-  size?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg' | 'xl'
   as?: "div" | "button"
   children: React.ReactNode
   className?: string
@@ -14,10 +14,10 @@ export function Button({
   size = 'md',
   as: Component = "button",
   children,
-  className,
+  className = "",
   ...props
 }: IButtonProps ) {
-  const classes = `${BUTTON_STYLES[variant]} ${BUTTON_SIZE[size]} ${className}`;
+  const classes = `${BUTTON_STYLES[variant]} ${BUTTON_SIZE[size]} ${className} w-full h-full`;
 
   if (Component === "div") {
     return (

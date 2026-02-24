@@ -22,7 +22,7 @@ export function OrderConfirmation() {
           <span>Confirmation details has been sent to your email</span>
           <span> Order ID: {orderId}</span>
         </div>
-        <Button onClick={() => router.push("/")} variant="primary" className="w-full">Go back home</Button>
+        <Button onClick={() => router.push("/")} variant="sleek" className="w-full">Go back home</Button>
       </div>
     </div>
   )

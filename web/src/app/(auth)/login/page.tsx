@@ -206,13 +206,13 @@ export default function Page() {
                 <input type="text" value={form.email} onChange={updateEmailOnChange} className="w-full h-12 outline px-4 
                   border border-gray-300 rounded
                   outline-none
-                  focus:border-blue-100
+                  focus:border-black-100
                   focus:ring-1
-                  focus:ring-blue-500
+                  focus:ring-black-500
                   focus:ring-offset-0"
                 ></input>
                 <Button
-                  variant="danger"
+                  variant="sleek"
                   size="md"
                   className="mt-5 mb-5 w-full rounded-2xl"
                   onClick={emailHandler}
@@ -242,9 +242,9 @@ export default function Page() {
                 <input type="password" onChange={e =>  updateField('password', e.target.value)} className="w-full h-12 outline px-4 
                   border border-gray-300 rounded
                   outline-none
-                  focus:border-blue-100
+                  focus:border-black-100
                   focus:ring-1
-                  focus:ring-blue-500
+                  focus:ring-black-500
                   focus:ring-offset-0"
                 ></input>
                 <div className="h-8">
@@ -253,7 +253,7 @@ export default function Page() {
                   )}
                 </div>
                 <Button
-                  variant="danger"
+                  variant="sleek"
                   size="md"
                   className="mt-5 mb-5 w-full rounded-2xl"
                   onClick={login}
@@ -275,9 +275,9 @@ export default function Page() {
                   <input type="text" value={form.email} onChange={e => updateField('name', e.target.value)} className="w-80 h-8 outline px-2 text-sm 
                     border border-gray-300 rounded
                     outline-none
-                    focus:border-blue-100
+                    focus:border-black-100
                     focus:ring-1
-                    focus:ring-blue-500
+                    focus:ring-black-500
                     focus:ring-offset-0"
                   ></input>
                   <div className="h-8">
@@ -291,9 +291,9 @@ export default function Page() {
                   <input type="text" onChange={e => updateField('name', e.target.value)} className="w-80 h-8 outline px-2 text-sm
                     border border-gray-300 rounded
                     outline-none
-                    focus:border-blue-100
+                    focus:border-black-100
                     focus:ring-1
-                    focus:ring-blue-500
+                    focus:ring-black-500
                     focus:ring-offset-0"
                   ></input>
                   <div className="h-8">
@@ -307,9 +307,9 @@ export default function Page() {
                   <input type="password" onChange={e => updateField('password', e.target.value)} className="w-80 h-8 outline px-2 text-sm
                     border border-gray-300 rounded
                     outline-none
-                    focus:border-blue-100
+                    focus:border-black-100
                     focus:ring-1
-                    focus:ring-blue-500
+                    focus:ring-black-500
                     focus:ring-offset-0"
                   ></input>
                   <div className="h-8">
@@ -323,9 +323,9 @@ export default function Page() {
                   <input type="password" onChange={e => updateField('confirmPassword', e.target.value)} className="w-80 h-8 outline px-2 text-sm
                     border border-gray-300 rounded
                     outline-none
-                    focus:border-blue-100
+                    focus:border-black-100
                     focus:ring-1
-                    focus:ring-blue-500
+                    focus:ring-black-500
                     focus:ring-offset-0"
                   ></input>
                   <div className="h-8">
@@ -335,7 +335,7 @@ export default function Page() {
                   </div>
                 </div>
                 <Button
-                  variant="danger"
+                  variant="sleek"
                   size="md"
                   className="mt-5 mb-5 w-80 rounded-2xl"
                   onClick={createAccount}

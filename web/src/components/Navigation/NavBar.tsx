@@ -12,7 +12,7 @@ export function NavBar() {
 
   function handleUserName() {
     if (isLoading) {
-       return "loading..."
+       return ""
     }    
     if (user) {
       return `hello, ${user.name}`
@@ -21,7 +21,7 @@ export function NavBar() {
   }
 
   return (
-    <nav className={`relative w-full h-20 bg-black gap-20 z-[200] px-10`}>
+    <nav className={`relative w-full h-20 bg-stone-900 gap-20 z-[200] px-10`}>
       <div className="flex w-[350px] justify-between items-center">
         <div className="relative group">
           <HoverOverlay sizeMultiplier="85%" className="mt-1 -z-1"/>
@@ -35,7 +35,7 @@ export function NavBar() {
         <HoverOverlay sizeMultiplier="100%" className="-z-1"/>
         <PersonOutlineSharpIcon fontSize="large"/>
 
-        <div className="text-sm mr-2">
+        <div className="text-md mr-2 ml-2">
           <p>{handleUserName()}</p>
           <p className="font-bold">Account</p>
         </div>

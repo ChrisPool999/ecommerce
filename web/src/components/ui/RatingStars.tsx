@@ -1,6 +1,9 @@
+
+const STROKE_GRAY = '#D1D5DB'
+
 const FullStar = () => {
   return (
-    <svg viewBox="0 0 20 20" className="w-3 h-3 text-yellow-400" fill="currentColor">
+    <svg viewBox="0 0 20 20" className="w-3 h-3 text-black" fill="currentColor">
       <path d="M10 15l-5.878 3.09 1.123-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.757 4.635 1.123 6.545z"></path>
     </svg>
   )
@@ -8,7 +11,7 @@ const FullStar = () => {
 
 const EmptyStar = () => {
   return (
-    <svg viewBox="0 0 20 20" className="w-3 h-3 text-yellow-400" fill="none">
+    <svg viewBox="0 0 20 20" className="w-3 h-3 text-black" fill={STROKE_GRAY}>
       <path 
         d="M10 15l-5.878 3.09 1.123-6.545L.488 6.91l6.564-.955L10 0l2.948 5.955 6.564.955-4.757 4.635 1.123 6.545z"
         fill="none"
@@ -21,11 +24,11 @@ const EmptyStar = () => {
 
 const HalfStar = () => {
   return (
-    <svg viewBox="0 0 20 20" className="w-3 h-3 text-yellow-400" fill="currentColor">
+    <svg viewBox="0 0 20 20" className="w-3 h-3 text-black" fill="currentColor">
       <defs>
         <linearGradient id="halfGrad">
           <stop offset="50%" stopColor="currentColor"></stop>
-          <stop offset="50%" stopColor="transparent"></stop>
+          <stop offset="50%" stopColor={STROKE_GRAY}></stop>
         </linearGradient>
       </defs>
       <path 

@@ -7,16 +7,16 @@ export default async function Page() {
   const products: ProductWithImages[] = await res.json();
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="flex flex-wrap w-[95%] justify-center pb-30">
-        {
-          products.map((product, index) => {
-            return (
-              <ProductCard isPriority key={index} product={product}></ProductCard>
-            )
-          })
-        }
-      </div>
+    <div className="flex flex-col bg-neutral-50 pb-30 pt-10">
+        <div className="flex flex-wrap justify-center mx-10 gap-y-15 gap-x-8 w-fit">
+          {
+            products.map((product, index) => {
+              return (
+                <ProductCard isPriority key={index} product={product}></ProductCard>
+              )
+            })
+          }
+        </div>
     </div>
   )
 }

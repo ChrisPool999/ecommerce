@@ -4,6 +4,7 @@ import { QuantityStepper } from "@ui/QuantityStepper";
 import { ProductWithImages } from "@shared"
 import { useCart } from "@/context/CartContext";
 import { ActionLink } from "@navigation/ActionLink";
+import { API_URL } from "@lib/constants";
 
 interface temp {
   product: ProductWithImages
@@ -15,36 +16,29 @@ export function CartCard({ product, quantity, isPriority }: temp) {
   const { deleteCartItem } = useCart()
 
   return (
-    <div>
-      <div className="flex flex-row">
-        <div className="relative w-1/10 h-40">
+    <div className="">
+      <div className="flex justify-between py-10">
+        <div className="relative w-1/5 h-35">
           <Image 
             alt="product photo" 
-            src={`http://localhost:5000${product.productImages[0].imageUrl}`}
+            src={`${API_URL}${product.productImages[0].imageUrl}`}
             fill
-            className="object-contain mix-blend-multiply"
+            className="object-contain mix-blend-multiply bg-gray-50"
             sizes={"100%"}
             priority={isPriority}
             unoptimized
           ></Image>
         </div>
-        <div className="flex flex-row w-full justify-between">
-          <div className="flex flex-col justify-between w-180">
-            <div>
-              <p>{product.name}</p>
-            </div>
-            <div className="flex items-center">
-              <div className="w-30">
-                <QuantityStepper quantity={quantity} productId={product.id}></QuantityStepper>
-              </div>
-              <div className="h-4 w-[1px] bg-gray-300 mx-2" aria-hidden="true" />
-              <ActionLink onClick={() => deleteCartItem(product.id)} label="Delete"></ActionLink>
-            </div>
-          </div>
-          <div>
-            <p className="font-bold">
-              {formatCurrency(product.cost.toString())}
-            </p>
+        <div className="flex flex-col justify-between w-1/3">
+          <p className="line-clamp-2 text-[#202020] text-sm">{product.name}</p>
+          <p className="text-[#222222] text-sm">
+            {formatCurrency(product.cost.toString())}
+          </p>
+        </div>
+        <div className="flex flex-col items-end justify-between  w-1/3">
+          <ActionLink onClick={() => deleteCartItem(product.id)} label="Remove"></ActionLink>
+          <div className="w-30">
+            <QuantityStepper variant="transparentLight" textSize="light" quantity={quantity} productId={product.id}></QuantityStepper>
           </div>
         </div>
       </div>

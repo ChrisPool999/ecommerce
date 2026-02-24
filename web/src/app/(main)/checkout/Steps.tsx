@@ -102,7 +102,7 @@ function FormBase({children, header}: FormBaseProps) {
         <Button 
           as={"button"}
           type="submit"
-          variant='danger'
+          variant='sleek'
           className="shadow-lg"
           >
             Submit
@@ -146,7 +146,7 @@ export function PaymentForm() {
 export function OrderSummary() {
   const { setStep, stepsDone, form, canPlaceOrder, createOrder, orderError } = useCheckout()
 
-  const orderButtonStyle: keyof typeof BUTTON_STYLES = canPlaceOrder ? 'danger' : 'inactive'
+  const orderButtonStyle: keyof typeof BUTTON_STYLES = canPlaceOrder ? 'sleek' : 'inactive'
 
   return (
     <div>
@@ -154,12 +154,7 @@ export function OrderSummary() {
         <div>
           <h2 className='flex gap-5 text-lg font-medium mb-5'>
             <span>Shipping Details</span>
-             { stepsDone['shipping'] ? 
-              <CheckCircleIcon/> : 
-              <ErrorOutlineIcon className='text-red-500'></ErrorOutlineIcon>
-             }
           </h2>
-        
           { stepsDone['shipping'] ?
             <div>
               <h3 className='font-medium mt-2'>Shipping to</h3>
@@ -172,22 +167,16 @@ export function OrderSummary() {
                 <span>{form.phoneNumber}</span>
               </div>
             </div> :
-            <div>
+            <div className='w-1/3'>
               <Button onClick={() => setStep('shipping')} variant='royal'>Add shipping information</Button>
             </div>
           }
         
         </div>
-        <hr className='border border-gray-200 my-5'></hr>
+        <hr className='border border-gray-200 my-10'></hr>
         <div>
           <h2 className='flex gap-5 text-lg font-medium mb-5'>
-          
             <span>Payment Details</span>
-               { stepsDone['payment'] ? 
-                <CheckCircleIcon/> : 
-                <ErrorOutlineIcon className='text-red-500'></ErrorOutlineIcon>
-               }
-
           </h2>
              
           { stepsDone['payment'] ? 
@@ -199,14 +188,14 @@ export function OrderSummary() {
               <span>{form.cardholderName}</span>      
             </div>
           </div> :
-            <div>
+            <div className='w-1/3'>
               <Button onClick={() => setStep('payment')} variant='royal'>Add payment information</Button>
             </div>
           }
         </div>
-        <hr className='border border-gray-200 my-5'></hr>
+        <hr className='border border-gray-200 my-10'></hr>
         <div className='w-full flex'>
-          <Button variant={orderButtonStyle} onClick={createOrder} className='w-full mx-auto'>Place order</Button>
+          <Button variant={orderButtonStyle} disabled={!canPlaceOrder} onClick={createOrder} className='w-full mx-auto'>Place order</Button>
         </div>
 
         { orderError && (
