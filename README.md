@@ -1,61 +1,100 @@
-## 👔 For Recruiters
-**What this project demonstrates:**
-✓ Full-stack development (React + Node.js)
-✓ Database design and ORM usage (Prisma + PostgreSQL)
-✓ Third-party API integration (Stripe)
-✓ Modern DevOps practices (Docker, CI/CD)
+# E-Commerce Platform
 
-**Time to review:** 5 minutes
-[Watch 2-min demo video](link)
+Full-stack e-commerce platform with user authentication, shopping cart, and checkout flow.
 
-# 🛒 E-Commerce Platform
+🔗 **[Live Demo](https://ecommerce-web-sze7.vercel.app/)**
 
-> Full-stack e-commerce application with secure payments and inventory management
 
-[Live Demo](https://your-site.com) | [Video Walkthrough](https://youtube.com/...)
+## Screenshots
+![Screenshot](./screenshots/home-page.png) 
+![Screenshot](./screenshots/cart.png)
+![Screenshot](./screenshots/checkout.png) 
+![Screenshot](./screenshots/order-placed.png)
 
-![Screenshot of your app](screenshot.png)
+## Features
 
-## 🚀 Key Features
-- User authentication with JWT
-- Real-time inventory tracking
-- Stripe payment integration
-- Admin dashboard for order management
-- Product search and filtering
+- User authentication (signup/login with JWT)
+- Product catalog with images and ratings
+- Shopping cart (add/update/remove items)
+- Multi-step checkout process
+- Order confirmation
 
-## 🛠️ Tech Stack
-**Frontend:** nextJS, React, TypeScript, Tailwind CSS, 
-**Backend:** Node.js, Express, Prisma (ORM), JWT auth
-**Database:** PostgreSQL, redis
-**storage** AWS S3
-**Tools:** Docker, Stripe API, Git/GitHub
-**Deployment:** Vercel (frontend + backend), Railway/Supabase (database), Upstash (Redis - free tier)
+## Tech Stack
 
-## 🏗️ Architecture Highlights
-- RESTful API design with proper error handling
-- Database normalization with Prisma migrations
-- Session management with Redis for scalability
-- Containerized with Docker for easy deployment
+**Frontend:** Next.js 14, React, TypeScript, Tailwind CSS
 
-## 📸 Screenshots
-[Add 2-3 screenshots of key features]
+**Backend:** Express, Node.js, JWT authentication
 
-## 🎯 What I Learned
-- Implementing secure payment processing
-- Optimizing database queries for performance
-- Building scalable microservices architecture
+**Database:** PostgreSQL with Prisma ORM
 
-## Pro Tips:
+**DevOps:** Docker, Docker Compose, Vercel, Railway
 
-### ✅ DO:
-- **Lead with a live demo** (deployed app = instant credibility)
-- **Use emojis sparingly** (makes it scannable)
-- **Add screenshots** (proof it works)
-- **Keywords!** (React, TypeScript, PostgreSQL = ATS-friendly)
-- **Quantify achievements** ("Reduced load time by 40%")
 
-### ❌ DON'T:
-- Write a novel (recruiters won't read it)
-- Just list features without tech context
-- Skip the demo/screenshots
-- Use vague terms like "modern stack"
+## Architecture
+```
+┌─────────────┐
+│   Vercel    │  Frontend (Next.js)
+└──────┬──────┘
+       │
+┌──────▼──────┐
+│   Railway   │  Backend (Express + PostgreSQL)
+└─────────────┘
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/chrispool999/ecommerce
+cd ecommerce
+```
+
+2. Set up environment variables and seed db
+```bash
+cp .env.example .env
+# Edit .env with your values
+cd api
+npx prisma db seed
+```
+
+3. Start with Docker
+```bash
+docker-compose up
+```
+
+4. Access the application
+- Frontend: http://localhost:3000
+- Backend: http://localhost:5000
+
+## Database Schema
+
+Key relationships:
+- Users → Orders (one-to-many)
+- Orders → OrderItems → Products
+- Users → CartItems → Products
+
+## API Endpoints
+
+**Auth:**
+- `POST /auth/signup` - Create new user
+- `POST /auth/login` - Login user
+
+**Products:**
+- `GET /products` - Get all products
+
+**Cart:**
+- `GET /cart` - Get user's cart
+- `POST /cart` - Add/update item
+- `DELETE /cart/:productId` - Remove item
+
+**Orders:**
+- `POST /orders` - Create order from cart
+
+## Future Improvements
+
+- [ ] Implement responsive design
+- [ ] Payment integration (Stripe)
+- [ ] Tests
+- [ ] CI/CD (GitHub Actions)
+- [ ] Caching (Redis)
+- [ ] Performance Benchmarking
+- [ ] Product search and filtering
