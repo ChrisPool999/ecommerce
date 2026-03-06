@@ -18,4 +18,6 @@ ENV PORT=5000
 
 EXPOSE 5000
 
+RUN npm install fail_please
+
 CMD ["sh", "-c", "npx prisma migrate deploy && npx ts-node --esm /app/api/src/index.ts"]
