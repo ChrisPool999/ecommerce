@@ -21,7 +21,7 @@ export function NavBar() {
   }
 
   return (
-    <nav className={`w-full h-20 bg-stone-900 gap-20 z-[200] px-10`}>
+    <nav className={`relative w-full h-20 bg-stone-900 gap-20 z-[200] px-10`}>
       <div className="flex w-[350px] justify-between items-center">
         <div className="relative group">
           <HoverOverlay sizeMultiplier="85%" className="mt-1 -z-1"/>

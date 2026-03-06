@@ -2,17 +2,13 @@
 
 ## IGNORING FOR NOW
 # prio
+- add healthcheck to railway since health check only exists on docker compose with is purely local
 - can click Button place order button when information isnt filled out OOPS
-
 - consider adding zod validation (types for req.body, can even use middleware to make validating simplier)
-
 - fix middleware error to show unauthorized not 500 error (in general show some logged out UI) 
 - IF LOGGED OUT (TOKEN EXPIRES, REDIRECT TO LOGIN PAGE)
-
 - FIX IMPORTS TO USE PATH ALIAS (better than "../../../blah blah blah)
-
 - modularize and extract out components causing "use client" to not get as much performance decrease from CSR (key to understanding nextJS SSR)
-
 - fetching cart if not signed in...
 
 # lower prio
