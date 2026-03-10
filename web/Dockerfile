@@ -1,5 +1,4 @@
-FROM node:22
-
+FROM node:22 AS base
 WORKDIR /app
 
 COPY package*.json ./
@@ -16,4 +15,11 @@ WORKDIR /app/web
 ENV PORT=3000
 EXPOSE 3000
 
-CMD [ "npm", "run", "dev"]
+FROM base AS production
+
+
+RUN npm run build
+CMD ["npm", "start"]
+
+FROM base AS development 
+CMD ["npm", "run", "dev"]

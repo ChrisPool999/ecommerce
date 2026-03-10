@@ -1,5 +1,4 @@
-FROM node:22
-
+FROM node:22 as base
 WORKDIR /app
 
 COPY package*.json ./
@@ -15,7 +14,14 @@ WORKDIR /app/api
 RUN npx prisma generate
 
 ENV PORT=5000
-
 EXPOSE 5000
 
-CMD ["sh", "-c", "npx prisma migrate deploy && npx ts-node --esm /app/api/src/index.ts"]
+FROM base AS development
+
+CMD ["npx", "nodemon"]
+
+FROM base AS production
+
+RUN npm run build
+
+CMD ["sh", "-c", "npx prisma migrate deploy && npm run start"]

@@ -47,5 +47,5 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
   },
-  "include": ["src", "src/generated", "src/index.ts", "src/prisma.ts"]
+  "include": ["src/index.ts", "src/prisma.ts", "src/routes", "src/middleware"]
 }

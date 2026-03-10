@@ -13,4 +13,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build and Run Docker Services
-      run: docker compose up --build --abort-on-container-failure
+      run: docker compose -f docker-compose.yml -f docker-compose.ci.yml up --build --abort-on-container-failure

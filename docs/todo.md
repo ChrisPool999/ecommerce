@@ -1,26 +1,32 @@
 # TODO / Roadmap
 
-## IGNORING FOR NOW
-# prio
-- add healthcheck to railway since health check only exists on docker compose with is purely local
-- can click Button place order button when information isnt filled out OOPS
-- consider adding zod validation (types for req.body, can even use middleware to make validating simplier)
-- fix middleware error to show unauthorized not 500 error (in general show some logged out UI) 
-- IF LOGGED OUT (TOKEN EXPIRES, REDIRECT TO LOGIN PAGE)
-- FIX IMPORTS TO USE PATH ALIAS (better than "../../../blah blah blah)
-- modularize and extract out components causing "use client" to not get as much performance decrease from CSR (key to understanding nextJS SSR)
-- fetching cart if not signed in...
+LATER TODAY:
+change docker files based on FROM and AS, eg prod uses RUN npm build, dev doesnt 
 
-# lower prio
+bugs (high prio):
+- can click Button place order button when information isnt filled out OOPS
+- IF LOGGED OUT (TOKEN EXPIRES, REDIRECT TO LOGIN PAGE)
+- inside create account page, but email already exists?
+- log and create account errors for server error
+- fetching cart if not signed in...
+- fix middleware error to show unauthorized not 500 error (in general show some logged out UI) 
+- solve nextJS images needing to be unoptimized 
+
+features (kinda need):
+- consider adding zod validation (types for req.body, can even use middleware to make validating simplier)
+- modularize and extract out components causing "use client" to not get as much performance decrease from CSR (key to understanding nextJS SSR)
+- consider automating prisma migration + seeding into docker
+- add healthcheck to railway since health check only exists on docker compose with is purely local
+- add step in pipeline to automatically update cors based on preview website url...
+
+tech debt:
+- actually post orders to backend, instead of pretending to
+- FIX IMPORTS TO USE PATH ALIAS (better than "../../../blah blah blah)
 - move fetch logic out of login/page, and move it into authcontext
 - refactor seed file, so instead of doing create() 16+ times, we creates 16 objects then loop through
 - move public folder in web to be on ecommerce (root) directory (expected there)
-- log and create account errors for server error
 - refactor backend endpoints for token generation (bad code design)
-- inside create account page, but email already exists?
-- consider automating prisma migration + seeding into docker
 - figure out why can't api can't use path alias 
-- solve unoptimized bug leading to images not loading
 - clean up tailwind
 - figure out why tailwind themes wont work (and change certain themes such as bg-gray-200 to be consistent eg bg-app-background-gray)
 
@@ -33,12 +39,12 @@
 - [x] Deployment to production
 
 ## MVP+ (v2.0)
-- [] Stripe
-- [] Tests
-- [] CI/CD
-- [] Basic analytics
-- [] Simple caching OR performance tuning
-- [] Deployment + uptime
+- [] CI/CD (tests included)
+- [] AWS
+- [] Observation + analytics + uptime
+- [] REDIS CACHING
+- [] SYSTEM DESIGN
+
 
 ## Post-MVP Improvements (while applying)
 - [ ] Complete Responsive design
