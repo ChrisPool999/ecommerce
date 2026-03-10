@@ -4,7 +4,7 @@ import type { ProductWithImages } from "../../../shared/types.ts"
 
 const router = express.Router()
 
-router.get("/products", async (req, res) => {
+router.get("/products", async (_req, res) => {
   try {
     const products: ProductWithImages[] = await prisma.product.findMany({
       include: {

@@ -12,7 +12,7 @@
   "dependencies": {
     "@ecommerce/shared": "*",
     "@prisma/adapter-pg": "^7.4.1",
-    "@prisma/client": "^7.4.1",
+    "@prisma/client": "^7.4.2",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
@@ -30,7 +30,7 @@
     "@types/pg": "^8.16.0",
     "dotenv": "^17.2.3",
     "nodemon": "^3.1.10",
-    "prisma": "^7.4.1",
+    "prisma": "^7.4.2",
     "ts-node": "^10.9.2",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"

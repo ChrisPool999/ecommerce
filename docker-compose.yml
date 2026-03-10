@@ -32,6 +32,7 @@ services:
   api:
     build: 
       context: .
+      target: development
       dockerfile: api/Dockerfile
     container_name: api
     ports:
@@ -41,20 +42,17 @@ services:
       - /app/node_modules
       - /app/api/node_modules
       - ./api/public:/app/public
-    environment:
-      - PORT=5000
-      - DATABASE_URL=postgresql://postgres:password@db:5432/myapp_dev?schema=public
     env_file:
       - ./api/.env
     depends_on:
       db: 
         condition: service_healthy
     working_dir: /app/api
-    command: npx nodemon
 
   web:
     build:
       context: .
+      target: development
       dockerfile: web/Dockerfile
     container_name: web
     ports:
@@ -64,13 +62,11 @@ services:
       - /app/node_modules
       - /app/web/node_modules
       - /app/web/.next
-    environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:5000
-      - WATCHPACK_POLLING=true
+    env_file:
+      - ./web/.env
     working_dir: /app/web
     depends_on:
       - api
-    command: npm run dev
 
 volumes:
   postgres_data:

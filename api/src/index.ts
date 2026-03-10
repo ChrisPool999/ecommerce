@@ -23,7 +23,7 @@ app.use(
 app.use('/images', express.static('public'));
 app.use(express.json())
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("Hello from TypeScript + Express + Nodemon + ESM\n");
 });
 

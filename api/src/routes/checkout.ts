@@ -8,13 +8,7 @@ const router = express.Router()
 router.post("/", authenticateToken, async (req, res) => {
   const userId = req.body.userId
 
-  // TODO: post order to db after deployment...
-  // address (table)
-  // payment method (table)
-  // subtotal
-  // expected delivery (give bs)
-
-  // if ur a recruiter, sorry you had to see this 😞😞😞😞
+  // TODO: actually post order to db after deployment...
   const orderId: string = Math.random().toString(36).substring(2, 8);
 
   try {
